@@ -40,8 +40,8 @@ VALUES
     ('Tram', 'Ngo', 'tramngo@gmail.com', 'password123', '2026-08-01 9:00:00', '2026-08-01 10:00:00'),
     ('Anthony', 'Lam', 'alam@gmail.com', 'password234', '2026-08-02 9:00:00', '2026-08-02 10:00:00'),
     ('Trang', 'Ngo', 'trangnngo@gmail.com', 'password345', '2026-08-03 9:00:00', '2026-08-03 10:00:00'),
-    ('An', 'Ngo', 'anngo@gmail.com', 'password567', '2026-08-04 9:00:00', '2020-07-04 10:00:00'),
-    ('Lanh', 'Do', 'lanhdo@gmail.com', 'password657', '2026-08-05 9:00:00', '2026-08-04 10:00:00');
+    ('An', 'Ngo', 'anngo@gmail.com', 'password567', '2026-08-04 9:00:00', '2026-08-05 10:00:00'),
+    ('Lanh', 'Do', 'lanhdo@gmail.com', 'password657', '2026-08-05 9:00:00', '2026-08-07 10:00:00');
 
 /* Insert 5 values into status table*/
 INSERT INTO status (description, created_at, updated_at)
@@ -52,7 +52,7 @@ VALUES
     ('Unavailable', '2026-08-01 10:00:00', '2026-08-01 11:00:00'),
     ('Under Repair', '2026-08-01 5:00:00', '2026-08-01 6:00:00');
 
-/* Insert 5 inventory into status table*/
+/* Insert 5 vlaues into status table*/
 INSERT INTO inventory (status_id, description, created_at, updated_at)
 VALUES
     (1, 'Laptop1', '2026-08-04 5:00:00', '2026-08-05 5:00:00'),
@@ -60,7 +60,7 @@ VALUES
     (1, 'Webcam1', '2026-08-08 7:00:00', '2026-08-08 8:00:00'),
     (1, 'TV1', '2026-08-01 7:00:00', '2026-08-01 9:00:00'),
     (1, 'Microphone1', '2026-08-01 10:00:00', '2026-08-01 11:00:00');
-/* Insert 3 inventory into transaction table*/
+/* Insert 3 values into transaction table*/
 INSERT INTO transactions (user_id, inventory_id, checkout_time, scheduled_checkin_time, actual_checkin_time, created_at, updated_at)
 VALUES
 (1, 1, '2020-07-20 5:00:00', '2020-08-02 7:00:00', NULL, '2020-07-20 5:00', '2020-07-20 10:00'),
@@ -110,3 +110,10 @@ JOIN status
     ON inventory.status_id = status.id
 WHERE transactions.user_id = 1
   AND status.description = 'Checked out';
+
+
+ /* Check every table after updating and inserting commands*/
+/* SELECT * FROM users;
+SELECT * FROM status;
+SELECT * FROM inventory;
+SELECT * FROM transactions;  */
